@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Starry Slots: a fictional, non-monetary slot-machine-style arcade game with a space theme." />
+  <title>Starry Slots</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Outfit:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Background layers: nebula (CSS) + stars (canvas) -->
+  <div class="nebula" aria-hidden="true"></div>
+  <canvas id="starfield" aria-hidden="true"></canvas>
+
+  <main class="page">
+    <h1 class="title">Starry Slots</h1>
+    <p class="tagline">A pocket arcade among the stars. Points only, no money.</p>
+
+    <section class="machine" id="machine" aria-label="Slot machine">
+      <div class="reels" role="group" aria-label="Reels">
+        <div class="reel" data-reel><div class="reel-strip"></div></div>
+        <div class="reel" data-reel><div class="reel-strip"></div></div>
+        <div class="reel" data-reel><div class="reel-strip"></div></div>
+        <span class="payline" aria-hidden="true"></span>
+      </div>
+
+      <p class="message" id="message" role="status" aria-live="polite">Press SPIN to launch the reels.</p>
+
+      <dl class="stats">
+        <div class="stat"><dt>Score</dt><dd id="score">0</dd></div>
+        <div class="stat"><dt>Spins</dt><dd id="spins">0</dd></div>
+        <div class="stat"><dt>Last win</dt><dd id="lastWin">0</dd></div>
+      </dl>
+
+      <div class="controls">
+        <button class="btn btn-spin" id="spinBtn" type="button">Spin</button>
+        <button class="btn btn-reset" id="resetBtn" type="button" aria-label="Reset score and spins">Reset</button>
+      </div>
+      <p class="hint">Tip: press <kbd>Space</kbd> to spin.</p>
+    </section>
+
+    <details class="paytable">
+      <summary>Points table</summary>
+      <ul id="paytableList"></ul>
+    </details>
+
+    <footer class="footer">
+      Fictional arcade simulation for entertainment. No real-money gambling.
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
